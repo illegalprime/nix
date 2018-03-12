@@ -39,6 +39,7 @@ diminactiveEnabled=true
 dynamicVirtualDesktopsEnabled=false
 enforcedecoEnabled=true
 invertEnabled=true
+kwin-script-tilingEnabled=true
 kwin4_effect_fadedesktopEnabled=false
 magiclampEnabled=true
 minimizeallEnabled=false
@@ -52,6 +53,18 @@ windowgeometryEnabled=false
 [Script-desktopchangeosd]
 PopupHideDelay=1000
 TextOnly=false
+
+[Script-kwin-script-tiling]
+floaters=
+noBorder=true
+placement=2
+respectMinMax=false
+screenGapSizeBottom=8
+screenGapSizeLeft=8
+screenGapSizeRight=8
+screenGapSizeTop=8
+windowsGapSizeHeight=4
+windowsGapSizeWidth=4
 
 [TabBox]
 DesktopLayout=org.kde.breeze.desktop
