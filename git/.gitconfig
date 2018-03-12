@@ -1,0 +1,8 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[user]
+	name = Michael Eden
+	email = themichaeleden@gmail.com
