@@ -1,0 +1,34 @@
+[Desktop Entry]
+DefaultProfile=Dark.profile
+
+[Favorite Profiles]
+Favorites=Dark.profile
+
+[FileDialogSize]
+Height 1080=1017
+Width 1920=1920
+Window-Maximized 1080x1920=true
+
+[KonsoleWindow]
+ShowMenuBarByDefault=false
+
+[MainWindow]
+Height 1024=1024
+Height 1080=563
+Height 1200=1192
+Height 480=430
+Height 720=720
+Height 768=738
+Height 800=800
+Height 960=910
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAAs4AAAH/AAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+Width 1024=1920
+Width 1280=1280
+Width 1600=474
+Width 1920=1020
+Width 640=640
+
+[TabBar]
+TabBarVisibility=ShowTabBarWhenNeeded
