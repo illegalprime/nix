@@ -345,6 +345,30 @@ function transfer() {
     rm -f $tmpfile
 }
 
+function nixit() {
+    local PROFILE="$1"
+    local WORKDIR="$(pwd)"
+    pushd ~/nix-shells >/dev/null
+
+    # Pick a profile if there isn't one already
+    if [[ -z $PROFILE ]]; then
+        select PROFILE in *; do
+            break
+        done
+    fi
+
+    # Do the nix shell
+    if [[ -f "$HOME/nix-shells/$PROFILE/default.nix" ]]; then
+        (
+            cd "$HOME/nix-shells/$PROFILE"
+            nix-shell --command "WANT_PWD='$WORKDIR' zsh"
+        )
+    else
+        echo "Could not find $PROFILE/default.nix in ~/nix-shells!" >&2
+    fi
+    popd >/dev/null
+}
+
 #############
 # Variables #
 #############
@@ -359,4 +383,8 @@ export PATH="${PATH}:/home/michael/.bin/node_modules/.bin/"
 ###############
 # use the defaults
 #
-#
+
+if [[ -n $WANT_PWD ]]; then
+    cd "$WANT_PWD"
+    WANT_PWD=
+fi
