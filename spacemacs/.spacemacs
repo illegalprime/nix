@@ -71,7 +71,7 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom
-            shell-default-term-shell "/bin/zsh"
+            shell-default-term-shell "/run/current-system/sw/bin/zsh"
             )
      spell-checking
      syntax-checking
