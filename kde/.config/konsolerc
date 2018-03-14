@@ -14,7 +14,7 @@ ShowMenuBarByDefault=false
 
 [MainWindow]
 Height 1024=1024
-Height 1080=1023
+Height 1080=1048
 Height 1200=1192
 Height 480=430
 Height 720=720
@@ -27,7 +27,7 @@ ToolBarsMovable=Disabled
 Width 1024=1920
 Width 1280=1280
 Width 1600=474
-Width 1920=1918
+Width 1920=1920
 Width 640=640
 Window-Maximized 1080x1920=true
 
