@@ -2,7 +2,7 @@
 DefaultProfile=Dark.profile
 
 [Favorite Profiles]
-Favorites=Dark.profile
+Favorites=Light.profile,Dark.profile
 
 [FileDialogSize]
 Height 1080=1017
@@ -22,7 +22,7 @@ Height 768=738
 Height 800=800
 Height 960=910
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAAAs4AAAH/AAAABAAAAAQAAAAIAAAACPwAAAAA
+State=AAAA/wAAAAD9AAAAAAAAA7QAAAQIAAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled
 Width 1024=1920
 Width 1280=1280

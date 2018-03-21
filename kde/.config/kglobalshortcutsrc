@@ -34,10 +34,12 @@ _k_friendly_name=KDE Daemon
 {1b94075d-36d6-4889-b792-036e2dedf84c}=Shift+Print,none,Take Full Screen Screenshot
 {1fc23a06-1895-4602-a766-5ee84d1ec283}=Alt+W,none,Open Firefox
 {23238279-622a-4a3f-893a-cbf7185d701a}=Meta+Print,none,Take Active Window Screenshot
+{240f06ef-670f-4b48-9b95-e84552c0931c}=Alt+T,none,Dark Theme
 {28393434-dd9d-447a-b6c1-43158c64face}=Alt+F,none,Open Files
 {3c91f351-ac5d-460e-937e-6ffe4cf10b0e}=Alt+E,none,Open Emacs
 {8e0b4bb6-48d5-4676-8526-4cbac6fd7659}=Meta+Return,none,Open Terminal
 {a73a7e40-8410-49c6-8ba8-ed7ee862ffc0}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
+{c8a2cd86-5d63-40ef-9f7e-645cc81bb614}=Alt+Shift+T,none,Light Theme
 {c9bec46c-52cb-4ed9-a18b-4fa4eb799bd3}=Print,none,Start Screenshot Tool
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=Search,none,Search
 

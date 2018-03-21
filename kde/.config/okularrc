@@ -12,8 +12,8 @@ Height 1080=480
 Width 1920=860
 
 [KFileDialog Settings]
-Recent Files[$e]=homework_1.pdf,file:$HOME/Documents/Textbooks/Introduction to the theory of computation_third edition - Michael Sipser.pdf,file:$HOME/Documents/Georgia Tech/CS4510/hw4.pdf,file:$HOME/Documents/Georgia Tech/CS4510/test-1-q5b.pdf,file:$HOME/Documents/Textbooks/Introduction to Linear Algebra.pdf,file:$HOME/Documents/Georgia Tech/MATH3406/homework-7.pdf,file:$HOME/Documents/Georgia Tech/MATH3406/homework-5.pdf,file:$HOME/Documents/Georgia Tech/CS4510/hw3.pdf,file:$HOME/cde/cs3630/lab3/Lab3.pdf,file:$HOME/cde/cs3630/lab2/CS3630_Lab2.pdf,file:$HOME/Documents/Georgia Tech/CS4510/hw2.pdf,file:$HOME/Documents/Resumes/Resume 20180201.pdf
-Recent URLs[$e]=file:$HOME/Documents/Georgia Tech/CS4510/,file:$HOME/Documents/Georgia Tech/MATH3406/,file:$HOME/Documents/Georgia Tech/,file:$HOME/cde/cs3630/lab3/,file:$HOME/Documents/Textbooks/,file:$HOME/Downloads/
+Recent Files[$e]=homework_1.pdf,file:$HOME/Documents/Textbooks/Introduction to Linear Algebra.pdf,file:$HOME/Documents/Textbooks/Introduction to the theory of computation_third edition - Michael Sipser.pdf,file:$HOME/Documents/Textbooks/Introduction to Computer Systems.pdf,file:$HOME/Documents/Georgia Tech/CS4510/hw4.pdf,file:$HOME/Documents/Georgia Tech/CS4510/test-1-q5b.pdf,file:$HOME/Documents/Georgia Tech/MATH3406/homework-7.pdf,file:$HOME/Documents/Georgia Tech/MATH3406/homework-5.pdf,file:$HOME/Documents/Georgia Tech/CS4510/hw3.pdf,file:$HOME/cde/cs3630/lab3/Lab3.pdf,file:$HOME/cde/cs3630/lab2/CS3630_Lab2.pdf,file:$HOME/Documents/Georgia Tech/CS4510/hw2.pdf,file:$HOME/Documents/Resumes/Resume 20180201.pdf
+Recent URLs[$e]=file:$HOME/Documents/Textbooks/,file:$HOME/Documents/Georgia Tech/CS4510/,file:$HOME/Documents/Georgia Tech/MATH3406/,file:$HOME/Documents/Georgia Tech/,file:$HOME/cde/cs3630/lab3/,file:$HOME/Downloads/
 
 [MainWindow]
 Height 1024=934
@@ -29,26 +29,26 @@ Window-Maximized 1080x1920=true
 ToolButtonStyle=IconOnly
 
 [Recent Files]
-File1[$e]=$HOME/themichaeleden@gmail.com/Documents/Books/Type-Driven_Development_with_Idris_v13_MEAP.pdf
-File10[$e]=$HOME/Documents/Textbooks/Introduction to the theory of computation_third edition - Michael Sipser.pdf
-File2[$e]=$HOME/cde/cs3630/lab3/Lab3.pdf
-File3[$e]=$HOME/Documents/Georgia Tech/CS4510/hw3.pdf
-File4[$e]=$HOME/Documents/Georgia Tech/MATH3406/homework-5.pdf
-File5[$e]=$HOME/Documents/Georgia Tech/MATH3406/homework-7.pdf
-File6[$e]=$HOME/Downloads/Literature Review.pdf
-File7[$e]=$HOME/cde/cs3630/lab4/Lab4.pdf
-File8[$e]=$HOME/themichaeleden@gmail.com/Documents/Georgia Tech/CS4510/hw3.pdf
-File9[$e]=$HOME/Documents/Georgia Tech/CS4510/hw4.pdf
-Name1[$e]=Type-Driven_Development_with_Idris_v13_MEAP.pdf
-Name10[$e]=Introduction to the theory of computation_third edition - Michael Sipser.pdf
-Name2[$e]=Lab3.pdf
-Name3[$e]=hw3.pdf
-Name4[$e]=homework-5.pdf
-Name5[$e]=homework-7.pdf
-Name6[$e]=Literature Review.pdf
-Name7[$e]=Lab4.pdf
-Name8[$e]=hw3.pdf
-Name9[$e]=hw4.pdf
+File1[$e]=$HOME/Documents/Georgia Tech/CS4510/hw3.pdf
+File10[$e]=$HOME/Documents/Textbooks/Introduction to Linear Algebra.pdf
+File2[$e]=$HOME/Documents/Georgia Tech/MATH3406/homework-5.pdf
+File3[$e]=$HOME/Documents/Georgia Tech/MATH3406/homework-7.pdf
+File4[$e]=$HOME/Downloads/Literature Review.pdf
+File5[$e]=$HOME/cde/cs3630/lab4/Lab4.pdf
+File6[$e]=$HOME/themichaeleden@gmail.com/Documents/Georgia Tech/CS4510/hw3.pdf
+File7[$e]=$HOME/Documents/Georgia Tech/CS4510/hw4.pdf
+File8[$e]=$HOME/Documents/Textbooks/Introduction to the theory of computation_third edition - Michael Sipser.pdf
+File9[$e]=$HOME/BotD/bing
+Name1[$e]=hw3.pdf
+Name10[$e]=Introduction to Linear Algebra.pdf
+Name2[$e]=homework-5.pdf
+Name3[$e]=homework-7.pdf
+Name4[$e]=Literature Review.pdf
+Name5[$e]=Lab4.pdf
+Name6[$e]=hw3.pdf
+Name7[$e]=hw4.pdf
+Name8[$e]=Introduction to the theory of computation_third edition - Michael Sipser.pdf
+Name9[$e]=bing
 
 [Toolbar mainToolBar]
 ToolButtonStyle=IconOnly
