@@ -11,6 +11,7 @@ export ZSH_CACHE_DIR="$(readlink -f ~/.zsh)"
 source ~/.zsh/init.zsh
 
 if echo "$-" | grep "l" > /dev/null; then
+    :
 else
     function precmd() {
         print -Pn "\e]2;$USER@%~\a"
@@ -202,6 +203,11 @@ function prompt-init {
         tokens+=(green:'%n')
     fi
 
+    # Show that we're in a nix shell and name it.
+    if [[ $NIX_SHELL_NAME ]]; then
+        tokens+=(green:'\$'"${NIX_SHELL_NAME}")
+    fi
+
     # show hostname if its not the default
     if [ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ]; then
         tokens+=(yellow:'%m')
@@ -296,7 +302,7 @@ alias again='until $(fc -ln -1); do :; done'
 alias clbin="curl -F 'clbin=<-' https://clbin.com"
 alias sudo='sudo -E ' # keep environment & check for alias
 alias find-email='netcat lu-serve.gatech.edu 105'
-alias vi=nvim
+alias vi=$EDITOR
 
 #############
 # Functions #
@@ -361,7 +367,7 @@ function nixit() {
     if [[ -f "$HOME/nix-shells/$PROFILE/default.nix" ]]; then
         (
             cd "$HOME/nix-shells/$PROFILE"
-            nix-shell --command "WANT_PWD='$WORKDIR' zsh"
+            nix-shell --command "WANT_PWD='$WORKDIR' NIX_SHELL_NAME='$PROFILE' zsh"
         )
     else
         echo "Could not find $PROFILE/default.nix in ~/nix-shells!" >&2
@@ -369,14 +375,10 @@ function nixit() {
     popd >/dev/null
 }
 
-#############
-# Variables #
-#############
-export EDITOR=nvim
-export PATH="${PATH}:/home/michael/.cabal/bin/"
-export PATH="${PATH}:/home/michael/.local/bin"
-export PATH="${PATH}:/home/michael/.gem/ruby/2.5.0/bin/"
-export PATH="${PATH}:/home/michael/.bin/node_modules/.bin/"
+####################
+# Shell Automation #
+####################
+source ~/bin/shell-hooks
 
 ###############
 # Autosuggest #
