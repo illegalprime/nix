@@ -1,4 +1,3 @@
-SOCKET="/tmp/shell_sessions/session-$$"
 GLOBAL_THEME="/tmp/global-theme"
 
 konsole_light() {
@@ -10,7 +9,10 @@ konsole_dark() {
 }
 
 switch_theme() {
-    local theme="$1"
+    if [[ ! -f $GLOBAL_THEME ]]; then
+        return
+    fi
+    local theme=$(cat "$GLOBAL_THEME")
     case "$theme" in
         dark)
             konsole_dark
@@ -22,24 +24,15 @@ switch_theme() {
 }
 
 start_watcher() {
-    tail -F "$SOCKET" | while read LINE; do
-        switch_theme "$LINE"
+    if [[ ! -f $GLOBAL_THEME ]]; then
+        touch "$GLOBAL_THEME"
+    fi
+    while :; do
+        inotifywait -e close_write "$GLOBAL_THEME" >/dev/null
+        switch_theme
     done
 }
 
-cleanup() {
-    rm -f "$SOCKET"
-}
-
-init_konsole_watcher() {
-    mkdir -p "$(dirname "$SOCKET")"
-    mkfifo "$SOCKET"
-
-    if [[ -f $GLOBAL_THEME ]]; then
-        switch_theme "$(cat "$GLOBAL_THEME")"
-    fi
-}
-
-init_konsole_watcher
+switch_theme
+# start_watcher
 ( start_watcher & ) 2>/dev/null
-trap cleanup EXIT INT TERM
