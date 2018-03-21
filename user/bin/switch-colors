@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DARK_THEME='dark'
+LIGHT_THEME='light'
+
+GLOBAL_THEME="/tmp/global-theme"
+
+switch_konsole() {
+    local theme="$1"
+    echo "$theme" | tee /tmp/shell_sessions/session-* >/dev/null
+}
+
+switch_global() {
+    local theme="$1"
+    echo "$theme" > "$GLOBAL_THEME"
+}
+
+switch_emacs() {
+    local theme="$1"
+    case "$theme" in
+        dark)
+            emacsclient -e "(load-theme 'spacemacs-dark t)"
+            ;;
+        light)
+            emacsclient -e "(load-theme 'spacemacs-light t)"
+            ;;
+    esac
+}
+
+switch_all() {
+    local theme="$1"
+    switch_konsole "$theme"
+    switch_global "$theme"
+    switch_emacs "$theme"
+}
+
+case "$1" in
+    dark)
+        switch_all $DARK_THEME
+    ;;
+    light)
+        switch_all $LIGHT_THEME
+    ;;
+esac
