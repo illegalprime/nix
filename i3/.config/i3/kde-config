@@ -1,0 +1,101 @@
+# i3 config file (v4)
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Generate by Chef for animatronio
+
+font pango:FontAwesome,Oxygen Mono Regular 11
+
+bindsym Mod4+Return exec konsole -e zsh
+bindsym Mod1+w exec firefox
+bindsym Mod1+Shift+w exec firefox --private-window
+bindsym Mod1+f exec nautilus --no-desktop
+bindsym Mod4+i exec xcalib -invert -alter
+bindsym Mod4+grave exec rofi -modi window -show window
+
+floating_modifier Mod4
+
+bindsym Mod4+Shift+q kill
+bindsym Mod4+q exec xkill
+
+bindsym Mod4+h focus left
+bindsym Mod4+j focus down
+bindsym Mod4+k focus up
+bindsym Mod4+l focus right
+bindsym Mod4+space focus mode_toggle
+bindsym Mod4+a focus parent
+bindsym Mod4+x focus child
+
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+
+bindsym Mod4+b split h
+bindsym Mod4+v split v
+
+bindsym Mod4+f fullscreen
+
+bindsym Mod4+s layout stacking
+bindsym Mod4+w layout tabbed
+bindsym Mod4+e layout toggle split
+bindsym Mod4+Shift+space floating toggle
+
+bindsym Mod4+1 workspace number 1
+bindsym Mod4+Shift+1 move container to workspace number 1
+bindsym Mod4+2 workspace number 2
+bindsym Mod4+Shift+2 move container to workspace number 2
+bindsym Mod4+3 workspace number 3
+bindsym Mod4+Shift+3 move container to workspace number 3
+bindsym Mod4+4 workspace number 4
+bindsym Mod4+Shift+4 move container to workspace number 4
+bindsym Mod4+5 workspace number 5
+bindsym Mod4+Shift+5 move container to workspace number 5
+bindsym Mod4+6 workspace number 6
+bindsym Mod4+Shift+6 move container to workspace number 6
+bindsym Mod4+7 workspace number 7
+bindsym Mod4+Shift+7 move container to workspace number 7
+bindsym Mod4+8 workspace number 8
+bindsym Mod4+Shift+8 move container to workspace number 8
+bindsym Mod4+9 workspace number 9
+bindsym Mod4+Shift+9 move container to workspace number 9
+bindsym Mod4+0 workspace number 10
+bindsym Mod4+Shift+0 move container to workspace number 10
+
+bindsym Mod4+Shift+c reload
+bindsym Mod4+Shift+r restart
+
+bindsym Mod4+r mode "resize"
+mode "resize" {
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+        bindsym Escape mode "default"
+}
+
+# we're going to use the KDE bar!
+# bar {}
+
+# Tab Decorations
+client.focused #aaaaaa #aaaaaa #151718 #9fca56
+client.focused_inactive #9fca56 #9fca56 #151718 #a074c4
+client.unfocused #1f2326 #1f2326 #aaaaaa #a074c4
+client.urgent #ce4045 #ce4045 #ffffff #dccd69
+
+new_window 1pixel
+new_float 1pixel
+for_window [class="^.*"] border pixel 0
+
+smart_gaps on
+gaps inner 5
+
+# hide kde desktop and stuff
+for_window [title="Desktop — Plasma"] move scratchpad
+# for volume popups
+no_focus [class="plasmashell"]
+for_window [class="plasmashell"] sticky enable
+for_window [class="plasmashell"] floating enable
+
+exec --no-startup-id xcape -e 'Control_L=Escape;Caps_Lock=Escape'
+exec --no-startup-id compton
+exec --no-startup-id nitrogen --restore
+
