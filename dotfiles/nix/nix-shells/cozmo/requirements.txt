@@ -1,0 +1,2 @@
+cozmo[camera]
+scikit-image
