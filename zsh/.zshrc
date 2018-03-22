@@ -375,6 +375,11 @@ function nixit() {
     popd >/dev/null
 }
 
+# This function is called whenever a command is not found.
+command_not_found_handler() {
+    command-not-found "$@"
+}
+
 ####################
 # Shell Automation #
 ####################
