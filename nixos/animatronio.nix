@@ -27,4 +27,9 @@ in
     ./animatronio-hardware.nix
     (configuration meta)
   ];
+
+  #
+  # HACK: Change if you have LVM
+  #
+  systemd.services.systemd-udev-settle.enable = false;
 }
