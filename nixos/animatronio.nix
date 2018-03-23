@@ -19,6 +19,7 @@ in
     ./programming.nix
     ./latex.nix
     # GUI
+    ./syncthing.nix
     ./gui-tools.nix
     ./i3.nix
     ./kde.nix
