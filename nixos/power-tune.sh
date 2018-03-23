@@ -6,9 +6,8 @@ powertop="${POWERTOP_CMD:-$(which powertop)}"
 iw="${IW_CMD:-$(which iw)}"
 
 # Powertop's autotune settings.
-# Disabling because TLP already does this more smartly
-# echo "powertop autotune"
-# $powertop --auto-tune
+echo "powertop autotune"
+$powertop --auto-tune
 
 # powersave wlans
 for wlan_dir in /sys/class/net/*/wireless; do
