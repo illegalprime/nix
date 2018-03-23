@@ -12,6 +12,7 @@ in
   imports = [
     # Include the results of the hardware scan.
     ./animatronio-hardware.nix
+    ./power-tune.nix
     ./hosts.nix
     ./cli-tools.nix
     ./fonts.nix
