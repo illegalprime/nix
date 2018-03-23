@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=qsyncthingtray
+GenericName[en_US]=
+GenericName=
+Icon=btsync-gui
+MimeType=
+Name[en_US]=Syncthing Tray
+Name=Syncthing Tray
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
