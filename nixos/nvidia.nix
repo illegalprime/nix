@@ -1,3 +1,6 @@
+meta:
+
+if meta.graphics.driver == "nvidia" then
 { config, pkgs, ... }:
 
 {
@@ -7,4 +10,13 @@
   nixpkgs.config.allowUnfree = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.bumblebee.enable = true;
+
+  services.tlp.extraConfig = if config.services.tlp.enable then
+  ''
+    RUNTIME_PM_BLACKLIST="${meta.graphics.pci}"
+  ''
+  else "";
 }
+else
+{ config, pkgs, ... }: {}
+

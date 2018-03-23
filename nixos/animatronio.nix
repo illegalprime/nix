@@ -5,14 +5,15 @@
 { config, pkgs, ... }:
 
 let
-  hostname = "animatronio";
-  timezone = "America/New_York";
+  meta = import ./animatronio-meta.nix;
+  nvidia = import ./nvidia.nix;
 in
 {
   imports = [
     # Include the results of the hardware scan.
     ./animatronio-hardware.nix
     ./power-tune.nix
+    (nvidia meta)
     ./hosts.nix
     ./cli-tools.nix
     ./fonts.nix
@@ -23,7 +24,6 @@ in
     ./gui-tools.nix
     ./i3.nix
     ./kde.nix
-    ./nvidia.nix
     ./steam.nix
   ];
 
@@ -44,7 +44,7 @@ in
   # Networking
   #
   #
-  networking.hostName = hostname;
+  networking.hostName = meta.hostname;
   networking.firewall.enable = false;
   networking.networkmanager.enable = true;
 
@@ -60,7 +60,7 @@ in
     defaultLocale = "en_US.UTF-8";
   };
   # Set your time zone.
-  time.timeZone = timezone;
+  time.timeZone = meta.timezone;
 
   #
   #

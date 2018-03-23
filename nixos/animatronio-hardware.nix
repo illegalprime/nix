@@ -22,6 +22,7 @@
     ];
 
   nix.maxJobs = lib.mkDefault 8;
+
   # Now managed by TLP
   # powerManagement.cpuFreqGovernor = "powersave";
 }
