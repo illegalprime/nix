@@ -86,8 +86,13 @@ in
   # Bluetooth
   hardware.bluetooth.enable = true;
 
+  #
   # Sound
+  #
+  # NixOS allows either a lightweight build (default) or full build of
+  # PulseAudio to be installed. Only the full build has Bluetooth support.
   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
   # Docker
   virtualisation.docker.enable = true;
