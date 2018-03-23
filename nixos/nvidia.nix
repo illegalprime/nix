@@ -14,6 +14,7 @@ if meta.graphics.driver == "nvidia" then
   services.tlp.extraConfig = if config.services.tlp.enable then
   ''
     RUNTIME_PM_BLACKLIST="${meta.graphics.pci}"
+    RUNTIME_PM_DRIVER_BLACKLIST="amdgpu nouveau nvidia radeon"
   ''
   else "";
 }
