@@ -16,6 +16,7 @@ in
     ./power-tune.nix
     (nvidia meta)
     ./hosts.nix
+    ./pia.nix
     ./cli-tools.nix
     ./fonts.nix
     (programming meta)
