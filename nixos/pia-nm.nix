@@ -28,7 +28,6 @@ in
       auth = "SHA256";
       tcp = "no";
       port = if tcp == "yes" then 501 else 1197;
-      user_only = if isNull user then "" else "permissions=user:${user.name}:;";
     in
     init // {
       "NetworkManager/system-connections/pia-${vpn_str server.name}" = {
@@ -38,7 +37,7 @@ in
           uuid=${uuid}
           type=vpn
           autoconnect=false
-          ${user_only}
+          permissions=user:${user.name}:;
 
           [vpn]
           service-type=org.freedesktop.NetworkManager.openvpn
