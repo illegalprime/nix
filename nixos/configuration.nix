@@ -1,33 +1,34 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 meta:
 { config, pkgs, ... }:
 
-let
-  nvidia = import ./nvidia.nix;
-  programming = import ./programming.nix;
-  syncthing = import ./syncthing.nix;
-  steam = import ./steam.nix;
-in
+let import_if = cond: path: if cond then import path meta else {...}:{}; in
 {
   imports = [
-    ./power-tune.nix
-    (nvidia meta)
+    # Default (Servers)
     ./hosts.nix
-    ./pia-system.nix
-    ./pia-nm.nix
     ./cli-tools.nix
-    ./fonts.nix
-    (programming meta)
-    ./latex.nix
-    # GUI
-    (syncthing meta)
-    ./gui-tools.nix
-    ./i3.nix
-    ./kde.nix
-    (steam meta)
+
+    # DMs/WMs
+    (import_if meta.desktop.i3.enable ./i3.nix)
+    (import_if meta.desktop.kde.enable ./kde.nix)
+
+    # For Desktops
+    (import_if meta.gui.enable ./fonts.nix)
+    (import_if meta.gui.enable ./programming.nix)
+    (import_if meta.gui.enable ./latex.nix)
+    (import_if meta.gui.enable ./syncthing.nix)
+    (import_if meta.gui.enable ./gui-tools.nix)
+    (import_if meta.gui.enable ./steam.nix)
+
+    # For Laptops
+    (import_if meta.battery.enable ./power-tune.nix)
+
+    # VPN Stuff
+    (import_if meta.pia-systemd.enable ./pia-system.nix)
+    (import_if meta.pia-nm.enable ./pia-nm.nix)
+
+    # Nvidia Card
+    (import_if (meta.graphics.driver == "nvidia") ./nvidia.nix)
   ];
 
   #

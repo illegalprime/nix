@@ -1,4 +1,4 @@
-meta:
+{ user, ... }:
 { config, pkgs, ... }:
 
 {
@@ -18,7 +18,7 @@ meta:
     };
   };
 
-  users.users."${meta.user.name}".packages = [
+  users.users."${user.name}".packages = [
     pkgs.steam
   ];
 

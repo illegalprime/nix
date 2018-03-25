@@ -17,15 +17,27 @@ let
     pci = "01:00.0";
   };
   timezone = "America/New_York";
+  pia-systemd = {
+    enable = true;
+    credentials = null;
+  };
+  pia-nm = {
+    enable = true;
+    user = "p2223201";
+  };
+  gui.enable = true;
+  battery.enable = true;
+  desktop = {
+    i3.enable = true;
+    kde.enable = true;
+  };
 };
-
-configuration = import ./configuration.nix;
 in
 {
   imports = [
     # Include the results of the hardware scan.
     ./animatronio-hardware.nix
-    (configuration meta)
+    (import ./configuration.nix meta)
   ];
 
   #

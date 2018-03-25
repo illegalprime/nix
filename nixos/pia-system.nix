@@ -1,9 +1,12 @@
+{ pia-systemd, ... }:
 { config, pkgs, ... }:
 
 with builtins;
 
 let pia-config = with pkgs; stdenv.mkDerivation rec {
   name = "pia-config";
+
+  login_path = if isNull pia-systemd.credentials then "" else credentialsPath;
 
   buildInputs = [
     unzip
@@ -36,7 +39,7 @@ let pia-config = with pkgs; stdenv.mkDerivation rec {
     sed -i "s|crl.rsa.2048.pem|$out/certs/\0|g" "$out"/config/*.ovpn
     sed -i "s|ca.rsa.2048.crt|$out/certs/\0|g" "$out"/config/*.ovpn
 
-    sed -i "s|auth-user-pass|auth-user-pass ${./pia-login.conf}|g" "$out"/config/*.ovpn
+    sed -i "s|auth-user-pass|auth-user-pass ${login_path}|g" "$out"/config/*.ovpn
   '';
 };
 in

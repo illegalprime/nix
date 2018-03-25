@@ -1,17 +1,16 @@
+{ user, pia-nm, ... }:
 { config, pkgs, ... }:
 
 with builtins;
 with pkgs.lib.strings;
 
-let pia_user = readFile ./pia-user.conf;
-
+let
 ca_cert = with pkgs; fetchurl {
   url = "https://www.privateinternetaccess.com/openvpn/ca.rsa.4096.crt";
   sha256 = "32e9b1d1433ea97614f2a14c6e358e3f57c0570cc9f6b2ee812699ba696c66ab";
 };
 
 servers = fromJSON (readFile ./pia-config.json);
-
 in
 {
   networking.networkmanager.enable = true;
@@ -29,6 +28,7 @@ in
       auth = "SHA256";
       tcp = "no";
       port = if tcp == "yes" then 501 else 1197;
+      user_only = if isNull user then "" else "permissions=user:${user.name}:;";
     in
     init // {
       "NetworkManager/system-connections/pia-${vpn_str server.name}" = {
@@ -38,10 +38,11 @@ in
           uuid=${uuid}
           type=vpn
           autoconnect=false
+          ${user_only}
 
           [vpn]
           service-type=org.freedesktop.NetworkManager.openvpn
-          username=${pia_user}
+          username=${pia-nm.user}
           comp-lzo=yes
           remote=${server.dns}
           cipher=${cipher}

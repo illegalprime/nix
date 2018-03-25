@@ -1,4 +1,4 @@
-meta:
+{ user, ... }:
 { config, pkgs, ... }:
 
 {
@@ -25,6 +25,6 @@ meta:
 
   # ADB Setup
   programs.adb.enable = true;
-  users.users."${meta.user.name}".extraGroups = ["adbusers"];
+  users.users."${user.name}".extraGroups = ["adbusers"];
 }
 

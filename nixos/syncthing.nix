@@ -1,11 +1,11 @@
-meta:
+{ user, ... }:
 { config, pkgs, ... }:
 
 {
   services.syncthing = {
     enable = true;
-    user = meta.user.name;
-    dataDir = "/home/${meta.user.name}/.syncthing";
+    user = user.name;
+    dataDir = "/home/${user.name}/.syncthing";
     openDefaultPorts = true;
   };
 
