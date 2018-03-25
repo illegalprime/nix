@@ -14,6 +14,12 @@ servers = fromJSON (readFile ./pia-config.json);
 
 in
 {
+  networking.networkmanager.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    networkmanager_openvpn
+  ];
+
   environment.etc = foldl' (init: name_uuid:
     let
       uuid = name_uuid.snd;

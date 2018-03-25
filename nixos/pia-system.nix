@@ -42,8 +42,6 @@ let pia-config = with pkgs; stdenv.mkDerivation rec {
 in
 {
   environment.systemPackages = with pkgs; [
-    openvpn
-    networkmanager_openvpn
     openresolv
   ];
 
