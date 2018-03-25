@@ -17,6 +17,7 @@ in
     (nvidia meta)
     ./hosts.nix
     ./pia-system.nix
+    ./pia-nm.nix
     ./cli-tools.nix
     ./fonts.nix
     (programming meta)
