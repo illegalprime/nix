@@ -7,5 +7,9 @@ Command=/run/current-system/sw/bin/zsh
 Name=Dark
 Parent=FALLBACK/
 
+[Scrolling]
+HistoryMode=2
+
 [Terminal Features]
 BlinkingCursorEnabled=true
+FlowControlEnabled=false

@@ -1,5 +1,14 @@
 [Compositing]
+AnimationSpeed=3
+Backend=OpenGL
+Enabled=true
+GLCore=false
+GLPreferBufferSwap=a
+GLTextureFilter=2
+HiddenPreviews=6
 OpenGLIsUnsafe=false
+WindowsBlockCompositing=true
+XRenderSmoothScale=false
 
 [Desktops]
 Number=10
@@ -100,7 +109,7 @@ TitlebarDoubleClickCommand=Maximize
 WindowSnapZone=10
 
 [org.kde.kdecoration2]
-BorderSize=Normal
+BorderSize=None
 ButtonsOnLeft=MS
 ButtonsOnRight=HIAX
 CloseOnDoubleClickOnMenu=false

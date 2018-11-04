@@ -6,49 +6,53 @@ Window-Maximized 1080x1920=true
 
 [Desktop Entry]
 FullScreen=false
+shouldShowMenuBarComingFromFullScreen=false
+shouldShowToolBarComingFromFullScreen=true
 
 [FileDialogSize]
 Height 1080=480
-Width 1920=860
+Width 1920=720
 
 [KFileDialog Settings]
-Recent Files[$e]=homework_1.pdf,file:$HOME/Documents/Textbooks/Introduction to Linear Algebra.pdf,file:$HOME/Documents/Textbooks/Introduction to the theory of computation_third edition - Michael Sipser.pdf,file:$HOME/Documents/Textbooks/Introduction to Computer Systems.pdf,file:$HOME/Documents/Georgia Tech/CS4510/hw4.pdf,file:$HOME/Documents/Georgia Tech/CS4510/test-1-q5b.pdf,file:$HOME/Documents/Georgia Tech/MATH3406/homework-7.pdf,file:$HOME/Documents/Georgia Tech/MATH3406/homework-5.pdf,file:$HOME/Documents/Georgia Tech/CS4510/hw3.pdf,file:$HOME/cde/cs3630/lab3/Lab3.pdf,file:$HOME/cde/cs3630/lab2/CS3630_Lab2.pdf,file:$HOME/Documents/Georgia Tech/CS4510/hw2.pdf,file:$HOME/Documents/Resumes/Resume 20180201.pdf
-Recent URLs[$e]=file:$HOME/Documents/Textbooks/,file:$HOME/Documents/Georgia Tech/CS4510/,file:$HOME/Documents/Georgia Tech/MATH3406/,file:$HOME/Documents/Georgia Tech/,file:$HOME/cde/cs3630/lab3/,file:$HOME/Downloads/
+Recent Files[$e]=homework_1.pdf,file:$HOME/cde/mscrt/michaeleden_paper.pdf,file:$HOME/cde/mscrt/paper/usenix.pdf,file:$HOME/Downloads/pldi2018.pdf,file:$HOME/Downloads/Michael Eden Thesis Draft.pdf,file:$HOME/cde/mscrt/python/graph.png,file:$HOME/cde/mscrt/python/interpolant.pdf,file:$HOME/Documents/Papers/Solving Constrained Horn Clauses using Interpolation.pdf,file:$HOME/Documents/Textbooks/Michael J. Quinn-Ethics for the Information Age-Addison-Wesley (2014).pdf,file:$HOME/Downloads/_OceanofPDF.com_1970-The_Left_Hand_of_Darkness_-_Ursula_K_le_Guin.pdf,file:$HOME/Downloads/qt5_c___gui_programming_cookbook.pdf,file:$HOME/Documents/Books/Haskell Programming From First Principles.pdf,file:$HOME/Documents/Books/Johnstone-Impro1-1.pdf,file:$HOME/Documents/Books/deeplearningbook.pdf,file:$HOME/Documents/Books/Hacking The Xbox.pdf
+Recent URLs[$e]=file:$HOME/cde/mscrt/,file:///tmp/mozilla_michael0/,file:$HOME/cde/,file:$HOME/Documents/Papers/,file:$HOME/Downloads/,file:$HOME/cde/mscrt/paper/
 
 [MainWindow]
 Height 1024=934
-Height 1080=1048
+Height 1080=1040
+Height 1440=1410
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAAA7QAAAPiAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAgAAAAAAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+State=AAAA/wAAAAD9AAAAAAAAAnwAAAPqAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAgAAAAAAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
 ToolBarsMovable=Disabled
 Width 1280=1280
-Width 1920=1920
-Window-Maximized 1080x1920=true
+Width 1920=636
+Width 2560=2560
+Window-Maximized 1080x1920=false
 
 [MainWindow][Toolbar mainToolBar]
 ToolButtonStyle=IconOnly
 
 [Recent Files]
-File1[$e]=$HOME/Documents/Georgia Tech/CS4510/hw3.pdf
+File1[$e]=$HOME/Downloads/adopting-elixir_p1_0.pdf.pdf
 File10[$d]
-File2[$e]=$HOME/Documents/Georgia Tech/MATH3406/homework-5.pdf
-File3[$e]=$HOME/Documents/Georgia Tech/MATH3406/homework-7.pdf
-File4[$e]=$HOME/Downloads/Literature Review.pdf
-File5[$e]=$HOME/cde/cs3630/lab4/Lab4.pdf
-File6[$e]=$HOME/Documents/Georgia Tech/CS4510/hw4.pdf
-File7[$e]=$HOME/Documents/Textbooks/Introduction to the theory of computation_third edition - Michael Sipser.pdf
-File8[$e]=$HOME/BotD/bing
-File9[$e]=$HOME/Documents/Textbooks/Introduction to Linear Algebra.pdf
-Name1[$e]=hw3.pdf
+File2[$e]=$HOME/Pictures/06-roofdog_preview.png
+File3[$d]
+File4[$d]
+File5[$d]
+File6[$d]
+File7[$d]
+File8[$d]
+File9[$d]
+Name1[$e]=adopting-elixir_p1_0.pdf.pdf
 Name10[$d]
-Name2[$e]=homework-5.pdf
-Name3[$e]=homework-7.pdf
-Name4[$e]=Literature Review.pdf
-Name5[$e]=Lab4.pdf
-Name6[$e]=hw4.pdf
-Name7[$e]=Introduction to the theory of computation_third edition - Michael Sipser.pdf
-Name8[$e]=bing
-Name9[$e]=Introduction to Linear Algebra.pdf
+Name2[$e]=06-roofdog_preview.png
+Name3[$d]
+Name4[$d]
+Name5[$d]
+Name6[$d]
+Name7[$d]
+Name8[$d]
+Name9[$d]
 
 [Toolbar mainToolBar]
 ToolButtonStyle=IconOnly

@@ -15,3 +15,4 @@ HistoryMode=2
 
 [Terminal Features]
 BlinkingCursorEnabled=true
+FlowControlEnabled=false

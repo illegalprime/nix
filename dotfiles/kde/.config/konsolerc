@@ -2,7 +2,7 @@
 DefaultProfile=Dark.profile
 
 [Favorite Profiles]
-Favorites=Light.profile,Dark.profile
+Favorites=Emacs.profile,Light.profile,Dark.profile
 
 [FileDialogSize]
 Height 1080=1017
@@ -14,22 +14,30 @@ ShowMenuBarByDefault=false
 
 [MainWindow]
 Height 1024=1024
-Height 1080=1048
+Height 1080=1040
 Height 1200=1192
+Height 1440=699
+Height 1920=415
 Height 480=430
 Height 720=720
 Height 768=738
 Height 800=800
 Height 960=910
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAAA7QAAAQIAAAABAAAAAQAAAAIAAAACPwAAAAA
+State=AAAA/wAAAAD9AAAAAAAABJQAAAQIAAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled
 Width 1024=1920
+Width 1080=1024
 Width 1280=1280
 Width 1600=474
-Width 1920=1920
+Width 1920=954
+Width 2560=505
 Width 640=640
-Window-Maximized 1080x1920=true
+Window-Maximized 1080x1920=false
+Window-Maximized 1440x2560=false
+
+[Profile Shortcuts]
+Up[$d]
 
 [TabBar]
 TabBarVisibility=ShowTabBarWhenNeeded
