@@ -15,7 +15,7 @@ let pia-config = with pkgs; stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://www.privateinternetaccess.com/openvpn/openvpn.zip";
-    sha256 = "6f899ff3a040be09499c90091f1f91859487ab176c54c610f6d4be2c74e5f32f";
+    sha256 = "2b26a343bf79760c6e0245531b4d4cebf98218f3319dacaedd6e8609d19d0bb5";
   };
 
   unpackPhase = ''

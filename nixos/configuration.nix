@@ -11,6 +11,7 @@ let import_if = cond: path: if cond then import path meta else {...}:{}; in
     # DMs/WMs
     (import_if meta.desktop.i3.enable ./i3.nix)
     (import_if meta.desktop.kde.enable ./kde.nix)
+    (import_if meta.desktop.awesome.enable ./awesome.nix)
 
     # For Desktops
     (import_if meta.gui.enable ./fonts.nix)
@@ -122,7 +123,7 @@ let import_if = cond: path: if cond then import path meta else {...}:{}; in
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "17.09"; # Did you read the comment?
+  system.stateVersion = "18.09"; # Did you read the comment?
 
   #
   # Disable Lid Close

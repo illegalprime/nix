@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   meta =
@@ -18,7 +18,7 @@ let
   };
   timezone = "America/New_York";
   pia-systemd = {
-    enable = true;
+    enable = false;
     credentials = null;
   };
   pia-nm = {
@@ -30,6 +30,7 @@ let
   desktop = {
     i3.enable = true;
     kde.enable = true;
+    awesome.enable = true;
   };
 };
 in
@@ -38,10 +39,53 @@ in
     # Include the results of the hardware scan.
     ./animatronio-hardware.nix
     (import ./configuration.nix meta)
+
+    (import /home/michael/cde/kde/nixpkgs/nixos/modules/services/ofono/default.nix {
+      pkgs = pkgs // { ofono = (import /home/michael/cde/kde/nixpkgs {}).ofono; };
+      inherit config lib;
+    })
+
+    (import ./tulip.nix meta)
   ];
+
 
   #
   # HACK: Change if you have LVM
   #
   systemd.services.systemd-udev-settle.enable = false;
+
+  #
+  # Change if you like it
+  #
+  # services.keybase.enable = true;
+  # services.kbfs.enable = true;
+
+  services.mongodb.enable = true;
+
+  boot.blacklistedKernelModules = [
+    "psmouse"
+  ];
+
+  # systemd.services.postgresql.enable = true;
+
+  boot.supportedFilesystems = [
+    "exfat"
+    "ext4"
+  ];
+
+  #
+  # Ofono, plasma mobile testing
+  #
+  # services.ofono = {
+  #   enable = true;
+  #   plugins.phonesim.enable = true;
+  # };
+
+  # Get TeamViewer running for Mack Molding
+  # services.teamviewer.enable = true;
+
+  # nix.useSandbox = true;
+
+  # HackGT NFC Readers
+  services.pcscd.enable = true;
 }

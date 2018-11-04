@@ -16,7 +16,6 @@
     gparted
     zeal
     libreoffice-fresh
-    okular
     fritzing
     glxinfo
     dolphinEmuMaster

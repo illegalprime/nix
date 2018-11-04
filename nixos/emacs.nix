@@ -15,7 +15,6 @@
 
   # Enable emacs service
   services.emacs.enable = true;
-  services.emacs.defaultEditor = true;
 
   #
   # Hacks to get Anaconda Mode working w/ emacs
