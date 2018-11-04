@@ -204,8 +204,8 @@ function prompt-init {
     fi
 
     # Show that we're in a nix shell and name it.
-    if [[ $NIX_SHELL_NAME ]]; then
-        tokens+=(green:'\$'"${NIX_SHELL_NAME}")
+    if [[ $name ]]; then
+        tokens+=(green:'\$'"${name}")
     fi
 
     # show hostname if its not the default
@@ -367,13 +367,45 @@ function nixit() {
     if [[ -f "$HOME/nix-shells/$PROFILE/default.nix" ]]; then
         (
             cd "$HOME/nix-shells/$PROFILE"
-            nix-shell --command "WANT_PWD='$WORKDIR' NIX_SHELL_NAME='$PROFILE' zsh"
+            nix-shell --command "WANT_PWD='$WORKDIR' zsh"
         )
     else
         echo "Could not find $PROFILE/default.nix in ~/nix-shells!" >&2
     fi
     popd >/dev/null
 }
+
+function mknixit() {
+    if [ ! -e ./.envrc ]; then
+        echo "use_nix_gcrooted -c" > .envrc
+        direnv allow
+    fi
+    if [[ -d .git ]]; then
+        echo /.envrc >> .git/info/exclude
+        echo /.direnv >> .git/info/exclude
+        echo /shell.nix >> .git/info/exclude
+    fi
+    if [[ ! -e shell.nix ]]; then
+        # symlink it somewhere else so `git clean` has no effect
+        mkdir -p ~/.nix-shells/
+        local shellf="${HOME}/.nix-shells/$(basename $(pwd))-$(date +%s)"
+        cat << EOF > "${shellf}"
+with import <nixpkgs> {};
+
+stdenv.mkDerivation {
+  name = "env";
+
+  buildInputs = [
+  ];
+}
+EOF
+        ln -s "${shellf}" shell.nix
+    fi
+    eval ${EDITOR} shell.nix
+}
+
+# Load direnv
+eval "$(direnv hook zsh)"
 
 # This function is called whenever a command is not found.
 command_not_found_handler() {

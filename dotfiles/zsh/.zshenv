@@ -1,3 +1,5 @@
+source "${HOME}/.profile"
+
 ###########
 # History #
 ###########

@@ -6,11 +6,6 @@ LIGHT_THEME='light'
 
 GLOBAL_THEME="/tmp/global-theme"
 
-switch_konsole() {
-    local theme="$1"
-    echo "$theme" | tee /tmp/shell_sessions/session-* >/dev/null
-}
-
 switch_global() {
     local theme="$1"
     echo "$theme" > "$GLOBAL_THEME"
@@ -20,7 +15,7 @@ switch_emacs() {
     local theme="$1"
     case "$theme" in
         dark)
-            emacsclient -e "(load-theme 'spacemacs-dark t)"
+            emacsclient -e "(load-theme 'monokai t)"
             ;;
         light)
             emacsclient -e "(load-theme 'spacemacs-light t)"
@@ -28,11 +23,47 @@ switch_emacs() {
     esac
 }
 
+switch_konsole() {
+    local theme
+    case "$1" in
+        dark)
+            theme='Dark'
+            ;;
+        light)
+            theme='Light'
+            ;;
+    esac
+    qdbus | grep 'org.kde.konsole' | while read service; do
+        qdbus $service | grep '/Sessions/' | while read path; do
+            qdbus $service $path org.kde.konsole.Session.setProfile $theme
+        done
+    done
+}
+
+switch_okular() {
+    local theme
+    case "$1" in
+        dark)
+            theme='True'
+            ;;
+        light)
+            theme='False'
+            ;;
+    esac
+    qdbus | grep 'org.kde.okular' | while read service; do
+        qdbus $service | grep -x '/okular[0-9]*' | while read path; do
+            qdbus $service $path org.kde.okular.slotSetChangeColors $theme
+        done
+    done
+}
+
 switch_all() {
     local theme="$1"
-    switch_konsole "$theme"
-    switch_global "$theme"
-    switch_emacs "$theme"
+    switch_konsole "$theme" &
+    switch_global "$theme" &
+    switch_emacs "$theme" &
+    switch_okular "$theme" &
+    echo "$theme"
 }
 
 case "$1" in

@@ -6,3 +6,8 @@
 [user]
 	name = Michael Eden
 	email = themichaeleden@gmail.com
+	signingkey = F881D984
+[url "git://anongit.kde.org/"]
+    insteadOf = kde:
+[url "git@git.kde.org:"]
+    pushInsteadOf = kde:
