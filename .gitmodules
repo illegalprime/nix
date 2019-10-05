@@ -4,6 +4,3 @@
 [submodule "zsh/.zsh/zgen"]
 	path = dotfiles/zsh/.zsh/zgen
 	url = https://github.com/tarjoilija/zgen.git
-[submodule "nixpkgs"]
-	path = nixpkgs
-	url = https://github.com/NixOS/nixpkgs.git

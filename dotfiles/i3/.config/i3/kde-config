@@ -4,17 +4,17 @@
 
 font pango:FontAwesome,Oxygen Mono Regular 11
 
-bindsym Mod4+Return exec konsole -e zsh
-bindsym Mod1+w exec firefox
-bindsym Mod1+Shift+w exec firefox --private-window
-bindsym Mod1+f exec nautilus --no-desktop
-bindsym Mod4+i exec xcalib -invert -alter
-bindsym Mod4+grave exec rofi -modi window -show window
+bindsym Mod4+Return    exec /usr/bin/env konsole -e zsh
+bindsym Mod1+w         exec /usr/bin/env firefox
+bindsym Mod1+Shift+w   exec /usr/bin/env firefox --private-window
+bindsym Mod1+f         exec /usr/bin/env dolphin
+bindsym Mod4+i         exec /usr/bin/env xcalib -invert -alter
+bindsym Mod4+q         exec /usr/bin/env xkill
+# bindsym Mod4+grave     exec rofi -modi window -show window
 
 floating_modifier Mod4
 
 bindsym Mod4+Shift+q kill
-bindsym Mod4+q exec xkill
 
 bindsym Mod4+h focus left
 bindsym Mod4+j focus down

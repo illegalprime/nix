@@ -126,6 +126,12 @@ select-word-style shell
 # Vim mode.
 bindkey -v
 
+#######
+# GPG #
+#######
+
+export GPG_TTY=$(tty)
+
 ##############
 # Statistics #
 ##############
@@ -303,6 +309,7 @@ alias clbin="curl -F 'clbin=<-' https://clbin.com"
 alias sudo='sudo -E ' # keep environment & check for alias
 alias find-email='netcat lu-serve.gatech.edu 105'
 alias vi=$EDITOR
+alias nixos-env='nix-env --profile /nix/var/nix/profiles/system'
 
 #############
 # Functions #
