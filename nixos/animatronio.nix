@@ -111,8 +111,16 @@ in
   #
   hardware.opengl.driSupport32Bit = true;
 
+  # chili plasma theme
   environment.systemPackages = with pkgs; [
     (callPackage ./sddm-theme-chili.nix {})
   ];
   services.xserver.displayManager.sddm.theme = "plasma-chili";
+
+  # plymouthd boot
+  boot.plymouth.enable = true;
+  boot.plymouth.logo = pkgs.fetchurl {
+    url = https://nixos.org/logo/nixos-logo-only-hires.png;
+    sha256 = "0j3bsx52lgacgbaslry2v3mqmv0v75cn11akdfjplr09pbl8av8s";
+  };
 }
