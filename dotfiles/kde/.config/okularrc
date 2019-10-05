@@ -20,36 +20,36 @@ Recent URLs[$e]=file:$HOME/cde/mscrt/,file:///tmp/mozilla_michael0/,file:$HOME/c
 [MainWindow]
 Height 1024=934
 Height 1080=1040
-Height 1440=1410
+Height 1440=487
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAAAnwAAAPqAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAgAAAAAAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+State=AAAA/wAAAAD9AAAAAAAAAnoAAAPvAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAgAAAAAAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
 ToolBarsMovable=Disabled
 Width 1280=1280
-Width 1920=636
-Width 2560=2560
+Width 1920=634
+Width 2560=685
 Window-Maximized 1080x1920=false
 
 [MainWindow][Toolbar mainToolBar]
 ToolButtonStyle=IconOnly
 
 [Recent Files]
-File1[$e]=$HOME/Downloads/adopting-elixir_p1_0.pdf.pdf
+File1[$e]=$HOME/Pictures/06-roofdog_preview.png
 File10[$d]
-File2[$e]=$HOME/Pictures/06-roofdog_preview.png
-File3[$d]
-File4[$d]
-File5[$d]
-File6[$d]
+File2[$e]=https://elinux.org/images/b/ba/ELC_2017_-_Industrial_IO_and_You-_Nonsense_Hacks%21.pdf
+File3[$e]=https://www.evilhat.com/home/wp-content/uploads/2015/01/Monster-of-the-Week-Revised-Playbooks.pdf
+File4[$e]=$HOME/Sync/Documents/DnD/Classroom Schedule Handout.pdf
+File5[$e]=$HOME/Downloads/Resume.pdf
+File6[$e]=$HOME/Desktop/Screenshot_20190708_011453.png
 File7[$d]
 File8[$d]
 File9[$d]
-Name1[$e]=adopting-elixir_p1_0.pdf.pdf
+Name1[$e]=06-roofdog_preview.png
 Name10[$d]
-Name2[$e]=06-roofdog_preview.png
-Name3[$d]
-Name4[$d]
-Name5[$d]
-Name6[$d]
+Name2[$e]=ELC_2017_-_Industrial_IO_and_You-_Nonsense_Hacks!.pdf
+Name3[$e]=Monster-of-the-Week-Revised-Playbooks.pdf
+Name4[$e]=Classroom Schedule Handout.pdf
+Name5[$e]=Resume.pdf
+Name6[$e]=Screenshot_20190708_011453.png
 Name7[$d]
 Name8[$d]
 Name9[$d]
