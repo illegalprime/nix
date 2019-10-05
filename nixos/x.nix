@@ -23,5 +23,8 @@
   environment.systemPackages = with pkgs; [
     xorg.xbacklight
   ];
+
+  # services.openssh.forwardX11 = true;
+  # programs.ssh.forwardX11 = true;
 }
 

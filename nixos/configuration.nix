@@ -19,7 +19,7 @@ let import_if = cond: path: if cond then import path meta else {...}:{}; in
     (import_if meta.gui.enable ./latex.nix)
     (import_if meta.gui.enable ./syncthing.nix)
     (import_if meta.gui.enable ./gui-tools.nix)
-    (import_if meta.gui.enable ./steam.nix)
+    # (import_if meta.gui.enable ./steam.nix)
 
     # For Laptops
     (import_if meta.battery.enable ./power-tune.nix)
@@ -29,7 +29,10 @@ let import_if = cond: path: if cond then import path meta else {...}:{}; in
     (import_if meta.pia-nm.enable ./pia-nm.nix)
 
     # Nvidia Card
-    (import_if (meta.graphics.driver == "nvidia") ./nvidia.nix)
+    # (import_if (meta.graphics.driver == "nvidia") ./nvidia.nix)
+
+    # QEMU Cross-Native-Compiling
+    ./qemu.nix
   ];
 
   #
@@ -123,7 +126,7 @@ let import_if = cond: path: if cond then import path meta else {...}:{}; in
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.09"; # Did you read the comment?
+  system.stateVersion = "19.03"; # Did you read the comment?
 
   #
   # Disable Lid Close

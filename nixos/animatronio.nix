@@ -40,10 +40,10 @@ in
     ./animatronio-hardware.nix
     (import ./configuration.nix meta)
 
-    (import /home/michael/cde/kde/nixpkgs/nixos/modules/services/ofono/default.nix {
-      pkgs = pkgs // { ofono = (import /home/michael/cde/kde/nixpkgs {}).ofono; };
-      inherit config lib;
-    })
+    # (import /home/michael/cde/kde/nixpkgs/nixos/modules/services/ofono/default.nix {
+    #   pkgs = pkgs // { ofono = (import /home/michael/cde/kde/nixpkgs {}).ofono; };
+    #   inherit config lib;
+    # })
 
     (import ./tulip.nix meta)
   ];
@@ -57,8 +57,8 @@ in
   #
   # Change if you like it
   #
-  # services.keybase.enable = true;
-  # services.kbfs.enable = true;
+  services.keybase.enable = true;
+  services.kbfs.enable = true;
 
   services.mongodb.enable = true;
 
@@ -71,6 +71,7 @@ in
   boot.supportedFilesystems = [
     "exfat"
     "ext4"
+    "nfs"
   ];
 
   #
@@ -88,4 +89,30 @@ in
 
   # HackGT NFC Readers
   services.pcscd.enable = true;
+
+  #
+  # FlatPak
+  #
+  services.flatpak.enable = true;
+
+  #
+  # QEMU Compiling
+  #
+  qemu-user.arm = true;
+  qemu-user.aarch64 = true;
+
+  #
+  # GPG
+  #
+  programs.gnupg.agent.enable = true;
+
+  #
+  # Basic Steam (no graphics)
+  #
+  hardware.opengl.driSupport32Bit = true;
+
+  environment.systemPackages = with pkgs; [
+    (callPackage ./sddm-theme-chili.nix {})
+  ];
+  services.xserver.displayManager.sddm.theme = "plasma-chili";
 }

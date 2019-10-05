@@ -10,7 +10,7 @@
     compton
     i3-gaps
     nitrogen
-    konsole
+    # konsole
   ];
 
   services.xserver.windowManager.i3 = {
