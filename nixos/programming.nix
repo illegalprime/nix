@@ -1,4 +1,3 @@
-{ user, ... }:
 { config, pkgs, ... }:
 
 {
@@ -15,6 +14,6 @@
 
   # ADB Setup
   programs.adb.enable = true;
-  users.users."${user.name}".extraGroups = ["adbusers"];
+  users.users.me.extraGroups = ["adbusers"];
 }
 

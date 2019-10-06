@@ -1,44 +1,35 @@
-meta:
-{ config, pkgs, ... }:
-
-let import_if = cond: path: if cond then import path meta else {...}:{}; in
+{ config, lib, pkgs, ... }:
 {
   imports = [
-    # Default (Servers)
-    ./hosts.nix
-    ./cli-tools.nix
+    # Tools
+    ./misc-tools.nix
 
     # DMs/WMs
-    (import_if meta.desktop.i3.enable ./i3.nix)
-    (import_if meta.desktop.kde.enable ./kde.nix)
-    (import_if meta.desktop.awesome.enable ./awesome.nix)
+    ./x.nix
+    ./i3.nix
+    ./kde.nix
 
     # For Desktops
-    (import_if meta.gui.enable ./fonts.nix)
-    (import_if meta.gui.enable ./programming.nix)
-    (import_if meta.gui.enable ./latex.nix)
-    (import_if meta.gui.enable ./syncthing.nix)
-    (import_if meta.gui.enable ./gui-tools.nix)
-    # (import_if meta.gui.enable ./steam.nix)
+    ./programming.nix
+    ./syncthing.nix
+    ./steam.nix
 
     # For Laptops
-    (import_if meta.battery.enable ./power-tune.nix)
+    ./power-tune
 
     # VPN Stuff
-    (import_if meta.pia-systemd.enable ./pia-system.nix)
-    (import_if meta.pia-nm.enable ./pia-nm.nix)
+    # ./pia/pia-system.nix
+    ./pia/pia-nm.nix
 
     # Nvidia Card
-    # (import_if (meta.graphics.driver == "nvidia") ./nvidia.nix)
+    # ./nvidia.nix
 
     # QEMU Cross-Native-Compiling
     ./qemu.nix
   ];
 
   #
-  #
   # Booting
-  #
   #
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -48,18 +39,13 @@ let import_if = cond: path: if cond then import path meta else {...}:{}; in
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   #
-  #
   # Networking
   #
-  #
-  networking.hostName = meta.hostname;
   networking.firewall.enable = false;
   networking.networkmanager.enable = true;
 
   #
-  #
   # Locality, Time & Font
-  #
   #
   # Select internationalisation properties.
   i18n = {
@@ -67,19 +53,17 @@ let import_if = cond: path: if cond then import path meta else {...}:{}; in
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
+
   # Set your time zone.
-  time.timeZone = meta.timezone;
+  time.timeZone = lib.mkDefault "America/New_York";
 
   #
+  # Filesystems
   #
-  # Packages & Services
-  #
-  #
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [];
+  boot.supportedFilesystems = ["exfat" "ext4" "nfs"];
 
-  # List services that you want to enable:
+  # Use Sandboxing
+  nix.useSandbox = true;
 
   #
   # SSH
@@ -103,33 +87,29 @@ let import_if = cond: path: if cond then import path meta else {...}:{}; in
 
   # Docker
   virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = false;
 
   #
+  # GPG
+  #
+  programs.gnupg.agent.enable = true;
+
   #
   # Users
   #
-  #
-  users.extraUsers."${meta.user.name}" = {
-    isNormalUser = true;
-    home = "/home/${meta.user.name}";
-    description = meta.user.full_name;
+  users.users.me = {
     uid = 1000;
+    isNormalUser = true;
     extraGroups = ["wheel" "people" "networkmanager" "docker"];
   };
+  users.mutableUsers = false;
 
   #
+  # Plymouth
   #
-  # NixOS Version
-  #
-  #
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
-
-  #
-  # Disable Lid Close
-  #
-  # services.logind.lidSwitch = "ignore";
+  boot.plymouth.enable = true;
+  boot.plymouth.logo = pkgs.fetchurl {
+    url = https://nixos.org/logo/nixos-logo-only-hires.png;
+    sha256 = "0j3bsx52lgacgbaslry2v3mqmv0v75cn11akdfjplr09pbl8av8s";
+  };
 }

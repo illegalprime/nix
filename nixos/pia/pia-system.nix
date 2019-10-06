@@ -1,4 +1,3 @@
-{ pia-systemd, ... }:
 { config, pkgs, ... }:
 
 with builtins;
@@ -6,7 +5,7 @@ with builtins;
 let pia-config = with pkgs; stdenv.mkDerivation rec {
   name = "pia-config";
 
-  login_path = if isNull pia-systemd.credentials then "" else credentialsPath;
+  login_path = "/etc/pia/creds";
 
   buildInputs = [
     unzip

@@ -4,50 +4,22 @@
 
 { config, lib, pkgs, ... }:
 
-let
-  meta =
-{
-  hostname = "animatronio";
-  user = {
-    name = "michael";
-    full_name = "Michael Eden";
-  };
-  graphics = {
-    driver = "nvidia";
-    pci = "01:00.0";
-  };
-  timezone = "America/New_York";
-  pia-systemd = {
-    enable = false;
-    credentials = null;
-  };
-  pia-nm = {
-    enable = true;
-    user = "p2223201";
-  };
-  gui.enable = true;
-  battery.enable = true;
-  desktop = {
-    i3.enable = true;
-    kde.enable = true;
-    awesome.enable = true;
-  };
-};
-in
 {
   imports = [
     # Include the results of the hardware scan.
     ./animatronio-hardware.nix
-    (import ./configuration.nix meta)
-
-    # (import /home/michael/cde/kde/nixpkgs/nixos/modules/services/ofono/default.nix {
-    #   pkgs = pkgs // { ofono = (import /home/michael/cde/kde/nixpkgs {}).ofono; };
-    #   inherit config lib;
-    # })
-
-    (import ./tulip.nix meta)
+    ./configuration.nix
   ];
 
+  # Hostname
+  networking.hostName = "animatronio";
+
+  # Username
+  users.users.me = {
+    name = "michael";
+    description = "Michael Eden";
+    hashedPassword = "$6$ws4vHuTBA7zm6c.X$0tjzfSqqjKCmBXlchi8GSVeyc2sFghxDDQNhn4t.T3znyPIh6hEuQBYYDxkfP2ztfCwkRtctUpACgMSeyIxx/.";
+  };
 
   #
   # HACK: Change if you have LVM
@@ -60,32 +32,10 @@ in
   services.keybase.enable = true;
   services.kbfs.enable = true;
 
-  services.mongodb.enable = true;
-
   boot.blacklistedKernelModules = [
     "psmouse"
   ];
 
-  # systemd.services.postgresql.enable = true;
-
-  boot.supportedFilesystems = [
-    "exfat"
-    "ext4"
-    "nfs"
-  ];
-
-  #
-  # Ofono, plasma mobile testing
-  #
-  # services.ofono = {
-  #   enable = true;
-  #   plugins.phonesim.enable = true;
-  # };
-
-  # Get TeamViewer running for Mack Molding
-  # services.teamviewer.enable = true;
-
-  # nix.useSandbox = true;
 
   # HackGT NFC Readers
   services.pcscd.enable = true;
@@ -101,26 +51,20 @@ in
   qemu-user.arm = true;
   qemu-user.aarch64 = true;
 
-  #
-  # GPG
-  #
-  programs.gnupg.agent.enable = true;
-
-  #
-  # Basic Steam (no graphics)
-  #
-  hardware.opengl.driSupport32Bit = true;
-
   # chili plasma theme
   environment.systemPackages = with pkgs; [
     (callPackage ./sddm-theme-chili.nix {})
   ];
   services.xserver.displayManager.sddm.theme = "plasma-chili";
 
-  # plymouthd boot
-  boot.plymouth.enable = true;
-  boot.plymouth.logo = pkgs.fetchurl {
-    url = https://nixos.org/logo/nixos-logo-only-hires.png;
-    sha256 = "0j3bsx52lgacgbaslry2v3mqmv0v75cn11akdfjplr09pbl8av8s";
-  };
+  #
+  #
+  # NixOS Version
+  #
+  #
+  # This value determines the NixOS release with which your system is to be
+  # compatible, in order to avoid breaking some software such as database
+  # servers. You should change this only after NixOS release notes say you
+  # should.
+  system.stateVersion = "19.03"; # Did you read the comment?
 }

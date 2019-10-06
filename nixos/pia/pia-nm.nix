@@ -1,4 +1,3 @@
-{ user, pia-nm, ... }:
 { config, pkgs, ... }:
 
 with builtins;
@@ -37,11 +36,11 @@ in
           uuid=${uuid}
           type=vpn
           autoconnect=false
-          permissions=user:${user.name}:;
+          permissions=user:${config.users.users.me.name}:;
 
           [vpn]
           service-type=org.freedesktop.NetworkManager.openvpn
-          username=${pia-nm.user}
+          username=p2223201
           comp-lzo=yes
           remote=${server.dns}
           cipher=${cipher}

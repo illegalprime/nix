@@ -1,11 +1,11 @@
-{ user, ... }:
 { config, pkgs, ... }:
 
 {
   services.syncthing = {
     enable = true;
-    user = user.name;
-    dataDir = "/home/${user.name}/.syncthing";
+    user = "1000";
+    group = "100";
+    dataDir = "${config.users.users.me.home}/.syncthing";
     openDefaultPorts = true;
     package = (import (builtins.fetchGit {
       name = "nixpkgs-syncthing-1.2.1";
@@ -14,7 +14,7 @@
     }) {}).syncthing;
   };
 
-  environment.systemPackages = [
-    pkgs.qsyncthingtray
+  environment.systemPackages = with pkgs; [
+    qsyncthingtray
   ];
 }

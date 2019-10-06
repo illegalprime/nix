@@ -1,4 +1,3 @@
-{ ... }:
 { config, pkgs, ... }:
 
 {
@@ -8,9 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     compton
-    i3-gaps
     nitrogen
-    # konsole
   ];
 
   services.xserver.windowManager.i3 = {
@@ -18,6 +15,8 @@
     enable = true;
     configFile = ../dotfiles/i3/.config/i3/kde-config;
   };
+  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.windowManager.default = "i3";
 
   # Get GTK3 settings to work
   programs.dconf.enable = true;

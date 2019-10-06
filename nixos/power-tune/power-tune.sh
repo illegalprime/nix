@@ -1,19 +1,15 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -euo pipefail
-
-# Get correct commands
-powertop="${POWERTOP_CMD:-$(which powertop)}"
-iw="${IW_CMD:-$(which iw)}"
 
 # Powertop's autotune settings.
 echo "powertop autotune"
-$powertop --auto-tune
+powertop --auto-tune
 
 # powersave wlans
 for wlan_dir in /sys/class/net/*/wireless; do
-    wlan=$(basename $(dirname "$wlan_dir"))
+    wlan=$(basename "$(dirname "$wlan_dir")")
     echo "power save for $wlan"
-    $iw dev "$wlan" set power_save on
+    iw dev "$wlan" set power_save on
 done
 
 # powersave cpus

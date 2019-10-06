@@ -1,8 +1,12 @@
-meta:
-
-if meta.graphics.driver == "nvidia" then
+let
+  meta = {
+    graphics = {
+      driver = "nvidia";
+      pci = "01:00.0";
+    };
+  };
+in
 { config, pkgs, pkgs_i686, ... }:
-
 {
   #
   # Graphics
